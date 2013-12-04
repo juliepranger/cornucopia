@@ -7,7 +7,7 @@ class CreateParties < ActiveRecord::Migration
       t.string :email
       t.string :userid
       t.string :host_id
-      t.array :guest_list
+      t.string :guest_list
 
       t.timestamps
     end

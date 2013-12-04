@@ -44,6 +44,7 @@ end
 group :test do
 	gem 'capybara'
 	gem 'guard-rspec'
+	gem 'selenium-webdriver'
 end
 
 # Use ActiveModel has_secure_password

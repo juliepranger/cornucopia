@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126230910) do
+ActiveRecord::Schema.define(version: 20131204214729) do
+
+  create_table "parties", force: true do |t|
+    t.string   "name"
+    t.string   "date"
+    t.string   "location"
+    t.string   "email"
+    t.string   "userid"
+    t.string   "host_id"
+    t.string   "guest_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "provider"
