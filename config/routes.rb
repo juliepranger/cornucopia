@@ -1,5 +1,7 @@
 Cornucopia::Application.routes.draw do
 
+  resources :parties
+
   resources :users
   resources :maps
   # You can have the root of your site routed with "root"
