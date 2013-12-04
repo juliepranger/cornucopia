@@ -13,4 +13,5 @@ feature 'user logs in via Facebook', js: true do
 
 		expect(current_path).to eql root_path
 	end
+
 end

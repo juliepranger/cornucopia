@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204214729) do
+ActiveRecord::Schema.define(version: 20131204223025) do
 
   create_table "parties", force: true do |t|
     t.string   "name"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 20131204214729) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.boolean  "is_host"
+    t.boolean  "is_attendee"
+    t.boolean  "is_current_user"
   end
 
 end
