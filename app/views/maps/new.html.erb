@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+	<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<style type="text/css">
+		  html { height: 100% }
+		  body { height: 100%; margin: 0; padding: 0 }
+		  #map-canvas { height: 100% }
+		</style>
+		<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUpKEW3aCJE7Q7eglp8jpQoCedf4XUqx8&sensor=false"></script>
+    <script src='//google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js' type='text/javascript'></script>
+    <script>
+      function initialize() {
+
+      	geocoder = new google.maps.Geocoder();
+
+      	var myLatlng = new google.maps.LatLng(34.0500, -118.2500);
+			  var mapOptions = {
+			 		zoom: 16,
+			    center: myLatlng,
+			    streetViewControl: false,
+			    zoomControl: true,
+			    panControl: false,
+			  };
+			  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+			  var contentString = '<div id="content">'+
+		      '<div id="siteNotice">'+
+		      '</div>'+
+		      '<h1 id="firstHeading" class="firstHeading">Los Angeles</h1>'+
+		      '<div id="bodyContent">'+
+		      '<p><b>Los Angeles</b>, also referred to as <b>a really cool place</b>, is a large ' +
+		      'stretch of urban sprawl in the southern part of the '+
+		      'state of California.</p>'+
+		      '<p>Attribution: Los Angeles, <a href="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/New_LA_Infobox_Pic_Montage_5.jpg/439px-New_LA_Infobox_Pic_Montage_5.jpg">'+
+		      'http://en.wikipedia.org/wiki/Los_Angeles</a></p>'+
+		      '</div>'+
+		      '</div>';
+
+			  var infowindow = new google.maps.InfoWindow({
+			      content: contentString
+			  });
+
+			  var marker = new google.maps.Marker({
+			      position: myLatlng,
+			      map: map,
+			      title: 'Los Angeles'
+			  });
+
+			  google.maps.event.addListener(marker, 'click', function() {
+			    infowindow.open(map,marker);
+			  });
+
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+
+			function loadScript() {
+			  var script = document.createElement('script');
+
+			  script.type = 'text/javascript';
+
+			  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+			      'callback=initialize';
+
+			  document.body.appendChild(script);
+			};
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas" style="width: 90%; height: 90%"></div>
+  </body>
+</html>
