@@ -3,30 +3,39 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %>Corncucopia</title>
-
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= csrf_meta_tags %>
-  </head>
+    <link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
+  <title>Cornucopia</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
 
   <body>
-  <div id="user-widget">
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <ul class="navbar" role="navigation">
-      <% if current_user %>
-        <li id="navbar-image"><%= image_tag current_user.image %><li>
-        <li><p>Welcome <strong><%= current_user.name %></strong>!</p></li>
-        <li class="navbar-left"><%= link_to "Users",users_path %></li>
-        <li class="navbar-left"><%= link_to "Parties",parties_path %></li>
-        <li class="navbar-left"><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-        <li class="navbar-left"><%= link_to "Cornucopia",root_path%></li>
-      <% else %>
-        <li class="navbar-left"><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
-      <% end %>
-    </ul>
-  </div>
+    <header>
+      <h1>Cornucopia</h1>
+            <p>
+            Because </br>
+            potlucks are supposed to be easy, </br>
+            planning with friends should be fun, </br>  headaches are not invited to parties, </br>
+            & how you celebrate community matters. </br>
+            We are here to help. </br>
+            </p>
 
+  </header>
+  <div id="user-widget">
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <ul class="navbar" role="navigation">
+    <% if current_user %>
+      <li id="image"><%= image_tag current_user.image %><li>
+      <li><p>Welcome <strong><%= current_user.name %></strong>!</p></li>
+      <li class="nav-left"><%= link_to "Users",users_path %></li>
+      <li class="nav-left"><%= link_to "Parties",parties_path %></li>
+      <li class="nav-left"><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+    <% else %>
+      <li class="nav-left"><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
+    <% end %>
+  </ul>
+  </div>
     <%= yield %>
  
   </body>
