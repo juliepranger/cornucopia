@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131204223025) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "parties", force: true do |t|
     t.string   "name"
     t.string   "date"
@@ -29,6 +32,12 @@ ActiveRecord::Schema.define(version: 20131204223025) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "image"
+    t.string   "link"
+    t.string   "username"
+    t.string   "user_location"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.datetime "created_at"
