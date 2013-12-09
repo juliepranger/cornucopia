@@ -7,7 +7,7 @@ body {
 
 header {
 	background: #F7E5AD;
-	margin: 10px;
+	margin: 50px;
 }
 
 header {
@@ -16,7 +16,8 @@ header {
 }
 
 h1 {
-	font-size: 64px;
+	font-family: inherit;
+	font-size: 48px;
 	margin: 10px;
 }
 
