@@ -13,6 +13,7 @@ header {
 header {
 	text-align: center;
 	font-family: 'Nothing You Could Do', cursive;
+	padding-top: 10px;
 }
 
 h1 {
@@ -31,6 +32,10 @@ p {
 
 .navbar {
 	list-style-type: none;
+}
+
+.navbar-header {
+	font-family: 'IM Fell English', serif;
 }
 
 .navbar img {
