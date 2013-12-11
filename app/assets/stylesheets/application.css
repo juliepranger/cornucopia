@@ -7,13 +7,11 @@ body {
 
 header {
 	background: #F7E5AD;
-	margin: 50px;
-}
-
-header {
+	margin: 50px 50px 0px 50px;
 	text-align: center;
 	font-family: 'Nothing You Could Do', cursive;
 	padding-top: 10px;
+	margin-bottom: 0;
 }
 
 h1 {
@@ -26,26 +24,49 @@ p {
 	padding-bottom: 10px;
 }
 
-#image {
-	padding-top: 30px;
-}
-
 .navbar {
 	list-style-type: none;
-}
-
-.navbar-header {
 	font-family: 'IM Fell English', serif;
 }
 
-.navbar img {
-	width: 80%;
+.navbar-default {
+	background-color: #f8f8f8;
+	border: none;
 }
 
+.navbar-brand a {
+	color: #333;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+	color: #555;
+	background-color: #f8f8f8;
+}
 #image {
-	width: 111px;
+	float: right;
+	width: 15%;
 }
 
-.nav-left {
+#image img {
+	width: 75%;
+}
+
+.active {
 	display: inline;
+}
+
+#user-widget {
+	float: left;
+}
+
+#bs-example-navbar-collapse-1 {
+	list-style-type: none;
+}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
 }
