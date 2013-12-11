@@ -27,6 +27,7 @@ p {
 .nav navbar-nav	{
 	padding-left: 356px;
 }
+
 .navbar {
 	list-style-type: none;
 	font-family: 'IM Fell English', serif;
@@ -66,10 +67,6 @@ li#image {
 
 #user-widget {
 	float: left;
-}
-
-#bs-example-navbar-collapse-1 {
-	list-style-type: none;
 }
 
 .clearfix:after {
