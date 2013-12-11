@@ -24,6 +24,9 @@ p {
 	padding-bottom: 10px;
 }
 
+.nav navbar-nav	{
+	padding-left: 356px;
+}
 .navbar {
 	list-style-type: none;
 	font-family: 'IM Fell English', serif;
@@ -42,17 +45,23 @@ p {
 	color: #555;
 	background-color: #f8f8f8;
 }
-#image {
-	float: right;
-	width: 15%;
+
+li#image {
+	padding-left: 610px;
+	width: 60%;
 }
 
+
 #image img {
-	width: 75%;
+	width: 40%;
 }
 
 .active {
 	display: inline;
+}
+
+#welcome {
+	padding-top: 15px;
 }
 
 #user-widget {
