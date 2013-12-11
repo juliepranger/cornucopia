@@ -1,0 +1,13 @@
+<h1> Recipe Box </h1>
+
+<% @recipes.each do |r| %>
+	<div>
+		<%= r.name %></br>
+		<%= r.serves %>
+		<% if r.serves != r.serves_max %>
+		- <%= r.serves_max %>
+		<% end %></br>
+		<%= r.total_time %></br>
+	</div>
+
+	<% end %>

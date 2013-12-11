@@ -1,0 +1,7 @@
+<table>
+	<% ((@recipes.first_row+1)..@recipes.last_row).each do |rowNum| %>
+	<tr>
+		<td><%= @recipes.cell(rowNum, 1) %></td>
+	</tr>
+	<% end %>
+</table>

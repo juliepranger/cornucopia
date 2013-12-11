@@ -1,0 +1,18 @@
+<h1> Create New Recipe </h1>
+
+<h4> Please fill in every item below:</h4>
+
+<%= form_for @recipe do |r| %>
+
+<%= r.label :name, "Name" %>
+<%= r.text_field :name %></br>
+
+<%= r.label :serves, "Serves" %>
+<%= r.text_field :serves %></br>
+
+<%= r.label :total_time, "Total Time" %>
+<%= r.text_field :total_time %></br>
+
+<%= r.submit "Submit Recipe" %>
+
+<% end %>
