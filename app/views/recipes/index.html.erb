@@ -2,8 +2,8 @@
 
 <% @recipes.each do |r| %>
 	<div>
-		<%= r.name %></br>
-		<%= r.serves %>
+		<strong><%= r.name %></strong></br>
+		Serves: <%= r.serves %>
 		<% if r.serves != r.serves_max %>
 		- <%= r.serves_max %>
 		<% end %></br>
