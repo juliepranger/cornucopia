@@ -1,3 +1,9 @@
+class String
+    def is_i?
+       !!(self =~ /^[-+]?[0-9]+$/)
+    end
+end
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
