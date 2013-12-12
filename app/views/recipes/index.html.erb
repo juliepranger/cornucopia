@@ -4,8 +4,8 @@
 	<div>
 		<strong><%= r.name %></strong></br>
 		Serves: <%= r.serves %>
-		<% if r.serves != r.serves_max %>
-		- <%= r.serves_max %>
+		<% if r.serves.to_i != r.serves_max %>
+			- <%= r.serves_max %>
 		<% end %></br>
 		Total Time: <%= r.total_time %>  minutes</br>
 	</div></br>
