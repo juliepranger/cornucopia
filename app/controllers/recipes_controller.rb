@@ -39,6 +39,10 @@ class RecipesController < ApplicationController
 				end
 			end
 
+			if result == ""
+				result = @recipes.cell(rowNum, 2)
+			end
+
 			# import the hour and min information in, convert everything to minutes
 				# set the stage with flags; converting spaces to individual tokens
 				end_result = 0
@@ -61,7 +65,7 @@ class RecipesController < ApplicationController
 
 
 			Recipe.create(name: @recipes.cell(rowNum, 1),
-			 serves: result.to_i, 
+			 serves: result, 
 			 serves_max: resultLast.to_i,
 			 total_time: end_result
 			 )
