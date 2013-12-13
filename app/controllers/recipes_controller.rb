@@ -5,8 +5,6 @@ class RecipesController < ApplicationController
 	end
 
 	def import
-		isFirstRow = true
-		rowNum = 0
 		current_recipe = nil # where are we in our list of ingredients?
 
 		@recipes = Roo::Excelx.new '/Users/juliepranger/Documents/wdi/cornucopia/RecipeListCornucopia.xlsx'
@@ -20,10 +18,7 @@ class RecipesController < ApplicationController
 			result = "" #setting the stage for later
 
 			recipe_name = @recipes.cell(rowNum, 1)
-			rowNum += 1
-			if rowNum == 33
-				puts @recipes.cell(rowNum, 4).to_s
-			end
+
 
 			if recipe_name && recipe_name.length > 0
 
