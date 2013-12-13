@@ -2,6 +2,10 @@ class String
     def is_i?
        !!(self =~ /^[-+]?[0-9]+$/)
     end
+
+    def is_f?
+       !!(self =~ /^[-+]?[0-9.]+$/)
+    end
 end
 
 class ApplicationController < ActionController::Base

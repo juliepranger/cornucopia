@@ -8,6 +8,9 @@
 			- <%= r.serves_max %>
 		<% end %></br>
 		Total Time: <%= r.total_time %>  minutes</br>
+		Ingredients: <% r.ingredients.each do |i|%></br>
+			<%= i.ingredient_name %>
+			<% end %>
 	</div></br>
 
 	<% end %>
