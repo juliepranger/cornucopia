@@ -134,7 +134,10 @@ class RecipesController < ApplicationController
 			params.require(:recipe).permit(
 				:name,
 				:serves,
-				:total_time
+				:total_time,
+				:quantity,
+				:unit_measure,
+				:ingredients
 				)
 		end
 
