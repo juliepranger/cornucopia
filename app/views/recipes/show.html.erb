@@ -6,3 +6,28 @@ Ingredients: <% @recipe.ingredients.each do |i|%></br>
 	<%= @recipe.ingredient_recipes.find_by(ingredient_id: i).quantity %>
 	<%= i.ingredient_name %>
 			<% end %></p>
+
+<div id="facebook_posting"
+  <div
+    class="fb-login-button"
+    data-show-faces="true"
+    data-width="200"
+    data-max-rows="1"
+    data-scope="publish_actions">
+  </div>
+
+  <div>
+  That story will just say that you like a
+  <a href="http://www.budgetbytes.com/2011/02/quick-curried-chick-peas/">
+  recipe on BudgetBytes</a>. 
+  </div>
+
+  <div>
+  <input
+    type="button"
+    value="Post recipe to Facebook"
+    onclick="postLike();">
+  </div>
+
+  <div id="result"></div>
+</div>

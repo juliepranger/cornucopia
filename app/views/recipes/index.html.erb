@@ -10,10 +10,6 @@
 		<% end %></br>
 		Total Time: <%= r.total_time %>  minutes</br>
 		<%= button_to "View Recipe", recipe_url(r.id), controller: :recipes, action: :show, method: :get %>
-		Ingredients: <% r.ingredients.each do |i|%></br>
-			<%= r.ingredient_recipes.find_by(ingredient_id: i).quantity %>
-			<%= i.ingredient_name %>
-			<% end %>
 	</div></br>
 
 	<% end %>
