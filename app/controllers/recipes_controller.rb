@@ -128,6 +128,10 @@ class RecipesController < ApplicationController
 		redirect_to recipes_url	
 	end
 
+	def show
+		@recipe = Recipe.find(params[:id])
+	end
+
 	private
 
 		def recipe_params

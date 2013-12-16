@@ -76,3 +76,11 @@ li#image {
    height: 0;
    clear: both;
 }
+
+#recipe_box {
+	padding-left: 20px;
+}
+
+#recipe {
+	padding-left: 20px;
+}

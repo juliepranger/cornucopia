@@ -11,7 +11,10 @@
 <%= r.text_field :serves %></br>
 
 <%= r.label :total_time, "Total Time" %>
-<%= r.text_field :total_time %></br>
+<%= r.text_field :total_time %> Minutes</br>
+
+<%= r.label :ingredients, "Ingredient List" %>
+<%= r.text_area :ingredients, rows: 5, cols: 50 %></br>
 
 <%= r.submit "Submit Recipe" %>
 

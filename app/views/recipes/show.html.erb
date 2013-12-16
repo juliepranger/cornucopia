@@ -1,9 +1,8 @@
-<h1>Show Page</h1>
+<h2><%= @recipe.name %></h2>
 
-<h3>User Info</h3>
-
-<p>
-Name: <%= @recipe.name %></br>
-Serves: <%= @recipe.serves %></br>
-Total Time: <%= @recipe.total_time %></br>
-</p>
+<p id="recipe">Serves: <%= @recipe.serves %></br>
+Total Time: <%= @recipe.total_time %>  minutes</br>
+Ingredients: <% @recipe.ingredients.each do |i|%></br>
+	<%= @recipe.ingredient_recipes.find_by(ingredient_id: i).quantity %>
+	<%= i.ingredient_name %>
+			<% end %></p>

@@ -1,5 +1,6 @@
 <h1> Recipe Box </h1>
 
+<div id="recipe_box">
 <% @recipes.each do |r| %>
 	<div>
 		<strong><%= r.name %></strong></br>
@@ -8,6 +9,7 @@
 			- <%= r.serves_max %>
 		<% end %></br>
 		Total Time: <%= r.total_time %>  minutes</br>
+		<%= button_to "View Recipe", recipe_url(r.id), controller: :recipes, action: :show, method: :get %>
 		Ingredients: <% r.ingredients.each do |i|%></br>
 			<%= r.ingredient_recipes.find_by(ingredient_id: i).quantity %>
 			<%= i.ingredient_name %>
@@ -15,3 +17,4 @@
 	</div></br>
 
 	<% end %>
+</div>
