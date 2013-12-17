@@ -1,10 +1,19 @@
 class RidesController < ApplicationController
 	before_action :set_ride, only: [:show, :edit, :update, :destroy]
+	skip_before_action :require_login, only:[:show, :index]
 	respond_to :html, :json
 
 def new
 	@ride = Ride.new
 end
+
+def create_ride_access
+		if current_user == :userid
+			redirect_to :action => 'show', :id =>@party._id
+		else
+			flash[:notice] = "Uh oh, you're not signed in!"
+		end
+	end
 
 def create
 	@party = Party.find(params[:id])

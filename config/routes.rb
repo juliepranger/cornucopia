@@ -4,7 +4,9 @@ Cornucopia::Application.routes.draw do
 
   resources :users
   resources :maps
-
+  resources :attendees
+  resources :items
+  
   get 'recipes/import' => "recipes#import"
   resources :recipes
   resources :rides

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='http://fonts.googleapis.com/css?family=IM+Fell+English' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
   <title>Cornucopia</title>
 
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -16,34 +15,33 @@
 
   <body>
     <header>
-      <h1>Cornucopia</h1>
-            <p>
-            Because </br>
-            potlucks are supposed to be easy, </br>
-            planning with friends should be fun, </br>  headaches are not invited to parties, </br>
-            & how you celebrate community matters. </br>
-            We are here to help. </br>
-            </p>
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header" id="user-widget">
-  <div class="navbar-brand"><%= link_to "Cornucopia", root_path %></div>
-  </div>
 
-  <div id="user-widget" class="clearfix">
-  <!-- Collect the nav links, forms, and other content for toggling -->
-    <ul class="nav navbar-nav">
-      <li class="active"><%= link_to "Users",users_path %></li>
-      <li class="active"><%= link_to "Parties",parties_path %></li>
-      <li class="active"><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-    <% if current_user %>
-      <li id="image"><%= image_tag current_user.image %><li>
-      <li id="welcome" class="active">Welcome <strong><%= current_user.name %></strong>!</li>
-    <% else %>
-      <li class="active"><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-      <% end %></li>
-    </ul>
-  </div>
+      <div class="navbar-header" id="user-widget">
+
+        <div id="user-widget" class="clearfix">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+          <ul class="navbar-items">
+            <li class="nav"><%= link_to "Cornucopia", root_path %></li>
+            <li class="nav"><%= link_to "Recipes", recipes_path %></li>
+            <li class="nav"><%= link_to "Parties", parties_path %></li>
+            <li class="nav"><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+          <% if current_user %>
+            <li class="nav" id="welcome">Welcome <%= current_user.name %>!</li>
+            <li class="nav" id="image" ><%= image_tag current_user.image %><li>
+          <% else %>
+            <li class="nav"><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+            <% end %></li>
+          </ul>
+        </div>
+      </div>
+      <h1 id="fix">Cornucopia</h1>
+          <p>
+          Because </br>
+          potlucks are supposed to be easy, </br>
+          planning with friends should be fun, </br>  headaches are not invited to parties, </br>
+          & how you celebrate community matters. </br>
+          We are here to help. </br>
+          </p>
   </header>
 
   <div

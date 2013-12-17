@@ -1,10 +1,19 @@
 class PartiesController < ApplicationController
   before_action :set_party, only: [:show, :edit, :update, :destroy]
+  skip_before_action :require_login, only:[:show, :index]
 
   # GET /parties
   # GET /parties.json
   def index
     @parties = Party.all
+  end
+
+  def create_party_access
+    if current_user == :userid
+      redirect_to :action => 'show', :id =>@party._id
+    else
+      flash[:notice] = "Uh oh, you're not signed in!"
+    end
   end
 
   # GET /parties/1
