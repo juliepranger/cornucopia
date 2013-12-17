@@ -17,13 +17,29 @@ header {
 	margin: 0 !important;
 }
 
+h1#fix {
+	font-family: 'Nothing You Could Do', cursive;
+}
+
 h1 {
-	font-family: inherit;
+	font-family: 'IM Fell English', serif;
 	font-size: 48px;
+}
+
+h2 {
+	font-family: 'IM Fell English', serif;
+	font-size: 36px;
+}
+
+p.recipe {
+	font-family: 'IM Fell English', serif;
+	font-size: 18px;
+	padding-left: 20px;
 }
 
 p {
 	padding-bottom: 10px;
+	padding-left: 20px;
 }
 
 ul.navbar-items {
@@ -80,10 +96,6 @@ div#user-widget.navbar-header {
 }
 
 #recipe_box {
-	padding-left: 20px;
-}
-
-#recipe {
 	padding-left: 20px;
 }
 

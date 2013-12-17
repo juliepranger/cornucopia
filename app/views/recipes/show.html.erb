@@ -1,11 +1,12 @@
 <h2><%= @recipe.name %></h2>
 
-<p id="recipe">Serves: <%= @recipe.serves %></br>
+<p class="recipe">Serves: <%= @recipe.serves %></br>
 Total Time: <%= @recipe.total_time %>  minutes</br>
+<p class="recipe">
 Ingredients: <% @recipe.ingredients.each do |i|%></br>
 	<%= @recipe.ingredient_recipes.find_by(ingredient_id: i).quantity %>
 	<%= i.ingredient_name %>
-			<% end %></p>
+			<% end %></p></p>
 
 <div id="facebook_posting"
   <div
