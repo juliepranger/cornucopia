@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :rides
+  has_and_belongs_to_many :parties
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

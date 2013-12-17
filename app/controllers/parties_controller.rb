@@ -10,6 +10,12 @@ class PartiesController < ApplicationController
   # GET /parties/1
   # GET /parties/1.json
   def show
+    @party = Party.find(params[:id])
+    @rides = Ride.find(params[:id])
+    respond_to do |format|
+      format.json { render :json => params }
+      format.html
+    end
   end
 
   # GET /parties/new
@@ -34,6 +40,7 @@ class PartiesController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @party.errors, status: :unprocessable_entity }
       end
+    @party.host = current_user
     end
   end
 

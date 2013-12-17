@@ -7,16 +7,18 @@ def new
 end
 
 def create
-	@ride = Ride.new(name: params[:name], lat: params[:lat], lng: params[:lng], date: params[:date])
+	@party = Party.find(params[:id])
+	logger.info @party.inspect
+	@ride = @party.rides.new(name: params[:name], lat: params[:lat], lng: params[:lng], date: params[:date])
     if @ride.save!
-      render :status => :ok, :json => { status: 'SUCCESS', url: ride_path(@ride) }
+      render :status => :ok, :json => { status: 'SUCCESS', url: party_path(@party) }
   	else
       render :status => 422, :json => { status: 'FAILED' }
  		end
 end
 
 def show
-	respond_with(@ride)
+	
 end
 
 private
@@ -32,7 +34,8 @@ private
 			:need_ride_location,
 			:lat,
 			:lng,
-			:date
+			:date,
+			:party_id
 			)
 	end
 
