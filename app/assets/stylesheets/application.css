@@ -1,9 +1,11 @@
 html {
 	margin: 0;
 }
+
 body {
 	background: #FAF6E8;
 	margin: 0;
+	padding-bottom: 10px;
 }
 
 header {
@@ -24,6 +26,7 @@ h1#fix {
 h1 {
 	font-family: 'IM Fell English', serif;
 	font-size: 48px;
+	padding-left: 20px;
 }
 
 h2 {
@@ -48,12 +51,42 @@ ul.navbar-items {
 }
 
 li#welcome.nav {
-	padding-left: 300px;
+	padding-left: 200px;
 }
 
 div#user-widget.navbar-header {
 	padding-bottom: 15px;
 	color: #555;
+}
+
+div.field {
+	padding-left: 20px;
+	font-family: 'Nothing You Could Do', cursive;
+}
+
+div.actions {
+	padding-left: 20px;
+	padding-top: 10px;
+}
+
+#button input {
+	border: none;
+	background-color: #F7E5AD;
+	font-size: 18px;
+	font-family: 'Nothing You Could Do', cursive;
+	padding: 5px;
+}
+
+.new_party.field input {
+	border: none;
+	font-size: 18px;
+	font-family: 'Nothing You Could Do', cursive;
+	padding: 5px;
+}
+
+input {
+	border: none !important;
+	padding: 5px !important;
 }
 
 .navbar-header {
@@ -93,6 +126,21 @@ div#user-widget.navbar-header {
    display: block;
    height: 0;
    clear: both;
+}
+
+div {
+	font-family: 'Nothing You Could Do', cursive;
+}
+
+table {
+	font-family: 'IM Fell English', serif;
+	padding-left: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: #555;
+	padding-left: 20px
 }
 
 #recipe_box {
