@@ -16,14 +16,13 @@ Ingredients: <% @recipe.ingredients.each do |i|%></br>
     data-scope="publish_actions">
   </div>
 
-  <div>
-  Like the
-  <a href="http://www.budgetbytes.com/2011/02/quick-curried-chick-peas/">
-  recipe on Cornucopia</a>. 
+  <div><a>Like the recipe on Cornucopia</a><a href="http://www.budgetbytes.com/2011/02/quick-curried-chick-peas/"></a>. 
   </div>
 
-  <div>
+  <div id="fb-post">
   <input
+    class="fb-login-button"
+    id="button"
     type="button"
     value="Post recipe to Facebook"
     onclick="postLike();">
