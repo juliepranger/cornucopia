@@ -24,10 +24,10 @@
 <p>
   <strong>Ride Requests</strong></br>
   <% @party.rides.each do |r| %>
-    Name: <%= r.name %></br>
-    Location: <%= r.lat %>, <%= r.lng %></br>
-</p>
+    <p>Name: <%= r.name %></br>
+    Location: <%= r.need_ride_location %></p></br>
   <% end %>
+</p>
 
 
 <%= link_to 'Edit', edit_party_path(@party) %> |
@@ -93,6 +93,11 @@
         alert('There was an error obtaining your position. Message: ' + e.message);
       });
 
+      //retrieve coordinates from map center and print to infoWindow
+      google.maps.event.addListener(map, "dragend", function() {
+        codeLatLng();
+      });
+
       GeoMarker.setMap(map); 
 
       var contentString = '<div id="content">'+
@@ -144,17 +149,17 @@
  //reverse geocode
   function codeLatLng() {
     var input = map.getCenter();
-    var lat = input.ob;
-    var lng = input.nb;
+    var lat = input.lat();
+    var lng = input.lng();
     var latlng = new google.maps.LatLng(lat, lng);
     
     geocoder.geocode({'latLng': latlng}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        console.log(results[1]);
+        console.log(results);
         if (results[1]) {
           need_ride = results[1].address_components[1].long_name;
-          need_ride_location = results[1].formatted_address;
-          $('#ride-btn-center').html('<h5>Request Ride</h5><i class="ion-navigate"></i><a>'+results[1].formatted_address+'</a>');
+          need_ride_location = results[0].formatted_address;
+          $('#ride-btn-center').html('<h5>Request Ride</h5><i class="ion-navigate"></i><h5>'+results[0].formatted_address+'</h5>');
         } else {
           alert('No results found');
         }
@@ -180,17 +185,18 @@
         (day<10 ? '0' : '') + day;
 
   $(function(){
-    $("#ride-btn").click(function(){
-      $.post('/rides', { need_ride: need_ride, name: name, location: need_ride_location, lat: map.getCenter().ob, lng: map.getCenter().nb, date: d, id: <%= @party.id %> }, function(data,status){
-        window.location.href = data.url;
-      });
-    });
+    alert(need_ride_location);
+  //   $("#ride-btn").click(function(){
+  //     $.post('/rides', { need_ride: need_ride, name: name, location: need_ride_location, lat: map.getCenter().ob, lng: map.getCenter().nb, date: d, id: <%= @party.id %> }, function(data,status){
+  //       window.location.href = data.url;
+  //     });
+  //   });
   });
 </script>
     <!--ride sharing -->
   <button type="button" id="ride-btn">
   <div id="ride-btn-center">
-    <h5>Need Ride</h5><i class="ion-navigate"></i><a>Current Location</a>
+    <h5>Need Ride</h5><i class="ion-navigate"></i><h5>Current Location</h5>
   </div>
 </button>
 

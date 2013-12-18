@@ -18,7 +18,7 @@ def create_ride_access
 def create
 	@party = Party.find(params[:id])
 	logger.info @party.inspect
-	@ride = @party.rides.new(name: params[:name], lat: params[:lat], lng: params[:lng], date: params[:date])
+	@ride = @party.rides.new(name: params[:name], lat: params[:lat], lng: params[:lng], date: params[:date], need_ride_location: params[:location])
     if @ride.save!
       render :status => :ok, :json => { status: 'SUCCESS', url: party_path(@party) }
   	else
