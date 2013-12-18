@@ -6,6 +6,11 @@ Total Time: <%= @recipe.total_time %>  minutes</br>
 Ingredients: <% @recipe.ingredients.each do |i|%></br>
 	<%= @recipe.ingredient_recipes.find_by(ingredient_id: i).quantity %>
 	<%= i.ingredient_name %>
+  <% end %></p>
+<p class="recipe">
+Directions: <% @recipe.directions.each do |d| %></br>
+  <%= d.direction_num %>
+  <%= d.instruction %>
 			<% end %></p></p>
 
 <div

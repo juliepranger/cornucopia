@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131217195826) do
+ActiveRecord::Schema.define(version: 20131218210358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20131217195826) do
     t.string   "guest_list"
     t.string   "party_id"
   end
+
+  create_table "directions", force: true do |t|
+    t.string   "direction_num"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "instruction"
+    t.integer  "recipe_id"
+  end
+
+  add_index "directions", ["recipe_id"], name: "index_directions_on_recipe_id", using: :btree
 
   create_table "ingredient_recipes", force: true do |t|
     t.integer  "recipe_id"

@@ -71,7 +71,7 @@ class RecipesController < ApplicationController
 				current_recipe = Recipe.create(name: recipe_name,
 				 serves: result, 
 				 serves_max: resultLast.to_i,
-				 total_time: end_result
+				 total_time: end_result,
 				 )
 			end
 
@@ -107,15 +107,20 @@ class RecipesController < ApplicationController
 						end
 					end
 				end
-				if ingredient.length > 255
-					ingredient = ingredient[0..254]
-				end
 				ingredient_object = Ingredient.find_or_create_by(:ingredient_name => ingredient)
 				current_recipe.ingredient_recipes.create(quantity:quantity, ingredient:ingredient_object)
 			end
 
-	
-			
+			direction_num = ""
+			direction = @recipes.cell(rowNum, 5)
+			if direction
+				direction.strip!
+				direction_array = direction.split('. ')
+				direction_num = direction_array[0]
+				direction = direction_array[1..direction_array.length-1].join('. ')
+				current_recipe.directions.create(:direction_num => direction_num, instruction: direction
+					)
+			end
 		end
 	end
 
