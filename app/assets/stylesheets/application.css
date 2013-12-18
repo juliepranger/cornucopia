@@ -43,6 +43,16 @@ h5 {
 	border: none;
 	background-color: #EDEDE8;
 	opacity: 0.8;
+	z-index: 30;
+	border-radius: 4px;
+  position: fixed;
+  top: 36%;
+  left: 38%;
+  z-index: 30;
+}
+
+div#map-canvas-bottom {
+	height: 10px;
 }
 
 p.recipe {
