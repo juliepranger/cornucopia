@@ -127,6 +127,8 @@ class RecipesController < ApplicationController
 								end
 							end
 						end
+						if ingredient.length > 255
+            ingredient = ingredient[0..254]
 					end
 					ingredient_object = Ingredient.find_or_create_by(:ingredient_name => ingredient)
 					current_recipe.ingredient_recipes.create(quantity:quantity, ingredient:ingredient_object)
