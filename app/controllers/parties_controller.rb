@@ -20,7 +20,7 @@ class PartiesController < ApplicationController
   # GET /parties/1.json
   def show
     @party = Party.find(params[:id])
-    @rides = Ride.find(params[:id])
+    # @rides = Ride.find(params[:id])
     respond_to do |format|
       format.json { render :json => params }
       format.html

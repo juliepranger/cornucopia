@@ -185,12 +185,13 @@
         (day<10 ? '0' : '') + day;
 
   $(function(){
-    alert(need_ride_location);
-  //   $("#ride-btn").click(function(){
-  //     $.post('/rides', { need_ride: need_ride, name: name, location: need_ride_location, lat: map.getCenter().ob, lng: map.getCenter().nb, date: d, id: <%= @party.id %> }, function(data,status){
-  //       window.location.href = data.url;
-  //     });
-  //   });
+    
+    $("#ride-btn").click(function(){
+      alert(need_ride_location);
+      $.post('/rides', { need_ride: need_ride, name: "<%= current_user.name %>", location: need_ride_location, lat: map.getCenter().ob, lng: map.getCenter().nb, date: d, id: <%= @party.id %> }, function(data,status){
+        window.location.href = data.url;
+      });
+    });
   });
 </script>
 
