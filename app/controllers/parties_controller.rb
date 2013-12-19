@@ -68,15 +68,11 @@ class PartiesController < ApplicationController
   end
 
   # DELETE /parties/1
-  # DELETE /parties/1.json
   def destroy
-    @party.destroy
-    respond_to do |format|
-      format.html { redirect_to parties_url }
-      format.json { head :no_content }
-    end
+    @party = Party.find(params[:id]).destroy
+    redirect_to parties_url
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_party
