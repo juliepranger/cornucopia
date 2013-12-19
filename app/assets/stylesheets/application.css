@@ -189,7 +189,6 @@ span.link {
 }
 
 button.button {
-	float: right;
 	margin: 20px;
 	padding: 10px;
 	border: none;
@@ -207,6 +206,10 @@ button.button {
 
 #facebook_posting, {
 	padding-left: 20px;
+}
+
+div.category_container {
+	text-align: center;
 }
 
 .fb-login-button {
