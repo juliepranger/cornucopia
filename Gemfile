@@ -35,7 +35,7 @@ gem 'figaro'
 
 gem 'roo'
 
-gem 'rails_12factor'
+gem 'rails_12factor' #i hate heroku
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

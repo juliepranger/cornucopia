@@ -146,9 +146,6 @@ class RecipesController < ApplicationController
 				current_recipe.directions.create(direction_num: direction_num, instruction: direction
 					)
 			end
-			if direction.length > 255
-      	direction = direction[0..254]
-    	end
 		end
 	end
 

@@ -58,12 +58,15 @@ div#map-canvas-bottom {
 p.recipe {
 	font-family: 'IM Fell English', serif;
 	font-size: 18px;
-	padding-left: 20px;
+	padding-left: 10px;
+}
+
+form.button_to {
+	padding-left: 10px;
 }
 
 p {
 	padding-bottom: 10px;
-	padding-left: 20px;
 }
 
 ul.navbar-items {
