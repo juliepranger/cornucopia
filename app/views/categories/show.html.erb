@@ -1,0 +1,17 @@
+<h2 class="category"><%= @category.category_name %></h2>
+
+
+<span class="link"><%= link_to 'Back', categories_path %></span>
+
+<div class="category_container">
+  <% @recipes.each do |r| %>
+    <p class="recipe"><strong><%= r.name %></strong></br>
+    Serves: <%= r.serves %>
+    <% if r.serves.to_i != r.serves_max %>
+      - <%= r.serves_max %>
+    <% end %></br>
+    Total Time: <%= r.total_time %>  minutes</br>
+    Category: <%= r.category.category_name %>
+    <%= button_to "View Recipe", recipe_url(r.id), controller: :recipes, action: :show, method: :get %></p>
+  <% end %>
+</div>

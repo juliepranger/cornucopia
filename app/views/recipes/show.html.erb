@@ -1,4 +1,4 @@
-<h2><%= @recipe.name %></h2>
+<p class= "recipe"><h2><%= @recipe.name %></h2></p>
 
 <p class="recipe">Serves: <%= @recipe.serves %></br>
 Total Time: <%= @recipe.total_time %>  minutes</br>
@@ -11,7 +11,10 @@ Ingredients: <% @recipe.ingredients.each do |i|%></br>
 Directions: <% @recipe.directions.each do |d| %></br>
   <%= d.direction_num %>
   <%= d.instruction %>
-			<% end %></p></p>
+			<% end %></p>
+<p class="recipe">
+Category: <%= @recipe.category.category_name %>
+</p></p>
 
 <div
     class="fb-login-button"

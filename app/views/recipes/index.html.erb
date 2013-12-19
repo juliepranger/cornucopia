@@ -1,6 +1,9 @@
 <h1> Recipe Box </h1>
 
-<div id="recipe_box">
+<div id="search-bar">
+	<%= link_to "Search by Category", categories_path %>
+</div>
+<div id="recipe_box" class="recipe">
 <% @recipes.each do |r| %>
 	<div>
 		<strong><%= r.name %></strong></br>
@@ -9,8 +12,8 @@
 			- <%= r.serves_max %>
 		<% end %></br>
 		Total Time: <%= r.total_time %>  minutes</br>
+		Category: <%= r.category.category_name %>
 		<%= button_to "View Recipe", recipe_url(r.id), controller: :recipes, action: :show, method: :get %>
 	</div></br>
-
 	<% end %>
 </div>

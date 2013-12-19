@@ -1,0 +1,6 @@
+<div class="cause_container">
+  <% @categories.each do |category| %>
+        <button type="button" class="button"><%= link_to category.category_name, category, class: "font" %>
+        </button>
+  <% end %>
+</div>

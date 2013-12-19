@@ -3,9 +3,6 @@ class UsersController < ApplicationController
 	def index
 		@users = User.all
 		@user = current_user
-		unless current_user.admin == "true"
-		redirect_to root_path, notice: "Uh oh, you don't have permission to view that!"
-		end #still need to create an admin
 	end
 
 	def new
@@ -20,6 +17,7 @@ class UsersController < ApplicationController
 		unless current_user == @user || current_user.admin
 			redirect_to users_path, notice: "You can only edit your own profile."
 			#privacy issues
+		end
 	end
 
 	def destroy

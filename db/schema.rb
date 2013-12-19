@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131218210358) do
+ActiveRecord::Schema.define(version: 20131218235234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,20 @@ ActiveRecord::Schema.define(version: 20131218210358) do
     t.string   "party_id"
   end
 
+  create_table "categories", force: true do |t|
+    t.string   "category_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "recipe_id"
+  end
+
+  add_index "categories", ["recipe_id"], name: "index_categories_on_recipe_id", using: :btree
+
   create_table "directions", force: true do |t|
     t.string   "direction_num"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "instruction"
+    t.string   "instruction",   limit: 1000
     t.integer  "recipe_id"
   end
 
@@ -50,7 +59,7 @@ ActiveRecord::Schema.define(version: 20131218210358) do
   add_index "ingredient_recipes", ["recipe_id"], name: "index_ingredient_recipes_on_recipe_id", using: :btree
 
   create_table "ingredients", force: true do |t|
-    t.string   "ingredient_name"
+    t.string   "ingredient_name", limit: 1000
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -83,7 +92,10 @@ ActiveRecord::Schema.define(version: 20131218210358) do
     t.string   "serves"
     t.float    "quantity"
     t.string   "unit_measure"
+    t.integer  "category_id"
   end
+
+  add_index "recipes", ["category_id"], name: "index_recipes_on_category_id", using: :btree
 
   create_table "rides", force: true do |t|
     t.boolean  "need_ride"

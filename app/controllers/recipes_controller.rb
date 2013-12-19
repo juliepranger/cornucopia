@@ -7,6 +7,8 @@ class RecipesController < ApplicationController
 	def import
 		current_recipe = nil # where are we in our list of ingredients?
 
+		recipe_num_dude = 0
+
 		@recipes = Roo::Excelx.new '/Users/juliepranger/Documents/wdi/cornucopia/RecipeListCornucopia.xlsx'
 		((@recipes.first_row+1)..@recipes.last_row).each do |rowNum|
 		# set up the serves range - ignore the non-numerical characteristics	
@@ -68,11 +70,30 @@ class RecipesController < ApplicationController
 				end
 				puts end_result
 
-				current_recipe = Recipe.create(name: recipe_name,
-				 serves: result, 
-				 serves_max: resultLast.to_i,
-				 total_time: end_result,
-				 )
+				category = ""
+				category_name = @recipes.cell(rowNum, 6)
+				recipe_num_dude += 1
+				puts recipe_num_dude.to_s + " - " + category_name
+				category = Category.find_by(category_name: category_name)
+				if !category
+					puts "AAAAAHHHHH" + category_name 
+				else
+
+					current_recipe = Recipe.create(name: recipe_name,
+					 serves: result, 
+					 serves_max: resultLast.to_i,
+					 total_time: end_result,
+					 category: category
+					 )
+				end
+			end
+
+			col4 = @recipes.cell(rowNum, 4)
+			col5 = @recipes.cell(rowNum, 5)
+
+			# If it's an empty row, go to the next row
+			if (!col4 || col4 == "") && (!col5 || col5 == "")
+				next
 			end
 
 			if !current_recipe
@@ -82,33 +103,34 @@ class RecipesController < ApplicationController
 				unit_measure = ""
 				prefix = ""	
 				ingredient = @recipes.cell(rowNum, 4)
-				break if !ingredient
-				ingredient.strip!
+				if ingredient
+					ingredient.strip!
 
-				if ingredient[-1, 1] == ":"
-					prefix = ingredient + " "
-				else
-					ingredient_rows = ingredient.split('\n')
-					if ingredient_rows.count > 1
-						puts ingredient_rows.count.to_s
-					end
-					ingredient_rows.each do |r|
-						ingredient_array = r.split(' ')
-						for i in (0..ingredient_array.length)
-							if ingredient_array[i].include?('/')
-								quantity_array = ingredient_array[i].split('/')
-								quantity += quantity_array[0].to_f / quantity_array[1].to_f
-							elsif ingredient_array[i].is_f?
-								quantity += ingredient_array[i].to_f
-							else
-								ingredient = ingredient_array[i..ingredient_array.length-1].join(' ') + prefix
-								break
+					if ingredient[-1, 1] == ":"
+						prefix = ingredient + " "
+					else
+						ingredient_rows = ingredient.split('\n')
+						if ingredient_rows.count > 1
+							puts ingredient_rows.count.to_s
+						end
+						ingredient_rows.each do |r|
+							ingredient_array = r.split(' ')
+							for i in (0..ingredient_array.length)
+								if ingredient_array[i].include?('/')
+									quantity_array = ingredient_array[i].split('/')
+									quantity += quantity_array[0].to_f / quantity_array[1].to_f
+								elsif ingredient_array[i].is_f?
+									quantity += ingredient_array[i].to_f
+								else
+									ingredient = ingredient_array[i..ingredient_array.length-1].join(' ') + prefix
+									break
+								end
 							end
 						end
 					end
+					ingredient_object = Ingredient.find_or_create_by(:ingredient_name => ingredient)
+					current_recipe.ingredient_recipes.create(quantity:quantity, ingredient:ingredient_object)
 				end
-				ingredient_object = Ingredient.find_or_create_by(:ingredient_name => ingredient)
-				current_recipe.ingredient_recipes.create(quantity:quantity, ingredient:ingredient_object)
 			end
 
 			direction_num = ""
@@ -118,9 +140,11 @@ class RecipesController < ApplicationController
 				direction_array = direction.split('. ')
 				direction_num = direction_array[0]
 				direction = direction_array[1..direction_array.length-1].join('. ')
-				current_recipe.directions.create(:direction_num => direction_num, instruction: direction
+				current_recipe.directions.create(direction_num: direction_num, instruction: direction
 					)
 			end
+
+		
 		end
 	end
 
@@ -135,19 +159,19 @@ class RecipesController < ApplicationController
 
 	def show
 		@recipe = Recipe.find(params[:id])
+		@category = Recipe.find(params[:id]).category
 	end
 
 	private
 
-		def recipe_params
-			params.require(:recipe).permit(
-				:name,
-				:serves,
-				:total_time,
-				:quantity,
-				:unit_measure,
-				:ingredients
-				)
-		end
-
+	def recipe_params
+		params.require(:recipe).permit(
+			:name,
+			:serves,
+			:total_time,
+			:quantity,
+			:unit_measure,
+			:ingredients
+			)
+	end
 end

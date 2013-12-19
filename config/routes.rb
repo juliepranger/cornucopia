@@ -10,6 +10,7 @@ Cornucopia::Application.routes.draw do
   get 'recipes/import' => "recipes#import"
   resources :recipes
   resources :rides
+  resources :categories
 
   # You can have the root of your site routed with "root"
   root 'users#index'
