@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
 
 		recipe_num_dude = 0
 
-		@recipes = Roo::Excelx.new '/Users/juliepranger/Documents/wdi/cornucopia/RecipeListCornucopia.xlsx'
+		@recipes = Roo::Excelx.new './RecipeListCornucopia.xlsx'
 		((@recipes.first_row+1)..@recipes.last_row).each do |rowNum|
 		# set up the serves range - ignore the non-numerical characteristics	
 			num = @recipes.cell(rowNum, 2)
