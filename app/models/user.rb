@@ -1,21 +1,32 @@
+require 'bcrypt'
+
 class User < ActiveRecord::Base
+  include BCrypt
+
+  attr_accessor :password, :password_confirmation
+
   has_many :rides
   has_and_belongs_to_many :parties
+  # has_many :items, class_name: "Item", inverse_of: :attendee
 
-  def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.name = auth.info.name
-      user.first_name = auth.info.first_name
-      user.last_name = auth.info.last_name
-      user.image = auth.info.image
-      user.link = auth.extra.raw_info.link
-      user.username = auth.extra.raw_info.username
-      user.user_location = auth.info.location
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
+  before_save :hash_password
+  validates :email, presence: true
+  validates :email, uniqueness: { case_sensitive: false }
+  validates :password, confirmation: true
+
+  def authenticate(password)
+    self.hashed_password ==
+    BCrypt::Engine.hash_secret(password, self.salt)
+  end
+
+  private
+
+  def hash_password
+    if password.present?
+      self.salt = BCrypt::Engine.generate_salt
+      self.hashed_password =
+      BCrypt::Engine.hash_secret(password, self.salt)
+      password = password_confirmation = nil
     end
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131219184357) do
+ActiveRecord::Schema.define(version: 20140104052403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20131219184357) do
     t.string   "direction_num"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "instruction"
+    t.string   "instruction",   limit: 1000
     t.integer  "recipe_id"
   end
 
@@ -115,23 +115,15 @@ ActiveRecord::Schema.define(version: 20131219184357) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "provider"
-    t.string   "uid"
     t.string   "name"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "image"
-    t.string   "link"
-    t.string   "username"
-    t.string   "user_location"
-    t.string   "oauth_token"
-    t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
     t.boolean  "is_host"
     t.boolean  "is_attendee"
     t.boolean  "is_current_user"
+    t.string   "salt"
+    t.string   "hashed_password"
   end
 
 end
