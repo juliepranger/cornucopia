@@ -23,14 +23,14 @@
           <ul class="navbar-items">
             <li class="nav"><%= link_to "Cornucopia", root_path %></li>
             <li class="nav"><%= link_to "Recipes", recipes_path %></li>
-            <li class="nav"><%= link_to "Parties", parties_path %></li>
-            <li class="nav"><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
           <% if current_user %>
             <li class="nav" id="welcome">Welcome <%= current_user.name %>!</li>
-            <li class="nav" id="image" ><%= image_tag current_user.image %><li>
+            <li class="nav"><%= link_to "Parties", parties_path %></li>
+            <li class="nav"><%= link_to "Sign out", "/logout" %></li>
           <% else %>
-            <li class="nav"><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-            <% end %></li>
+            <li class="nav"><%= link_to "Log In", "/authentications/new" %>
+            <li ><%= link_to "Sign Up", "/users/new" %></li>
+            <% end %>
           </ul>
         </div>
       </div>

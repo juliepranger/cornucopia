@@ -1,0 +1,29 @@
+<header>
+	<h1>Sign Up</h1>
+</header>
+
+<div id="container">
+
+<%= form_for @user do |user| %>
+	<p>
+		<%= user.label :email, "E-mail" %>
+		<%= user.text_field :email %>
+	</p>
+
+	<p>
+		<%= user.label :password, "Password" %>
+		<%= user.text_field :password %>
+	</p>
+
+	<p>
+		<%= user.label :password_confirmation, "Confirm Password" %>
+		<%= user.text_field :password_confirmation %>
+	</p>
+
+	<p>
+		<%= user.submit "Sign Up!" %>
+	</p>
+
+	<% end %>
+
+</div>
