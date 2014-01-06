@@ -52,6 +52,7 @@ group :development do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
 	gem 'rails-erd'
+	gem 'better_errors'
 end
 
 group :test do

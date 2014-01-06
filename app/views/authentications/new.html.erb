@@ -1,21 +1,17 @@
 <header>
-	<h1>Log In</h1>
+	<h4 class="auth-header">Log In</h4>
 </header>
 
-<div id="container">
+<div class="container">
 
 <%= form_for @user, url:"/authentications" do |user| %>
-	<p>
-		<%= user.label :name, "Name" %>
-		<%= user.text_field :name %>
-	</p>
 
-	<p>
+	<p class="form">
 		<%= user.label :email, "E-mail" %>
 		<%= user.text_field :email %>
 	</p>
 
-	<p>
+	<p class="form">
 		<%= user.label :password, "Password" %>
 		<%= user.password_field :password %>
 	</p>

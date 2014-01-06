@@ -39,6 +39,19 @@ h5 {
 	font-size: 14px;
 }
 
+.auth-header {
+	background: #FAF6E8;
+	font-size: 20px;
+}
+
+.form {
+	font-family: 'Nothing You Could Do', cursive;
+}
+
+.container {
+	padding-left: 20px;
+}
+
 #ride-btn {
 	border: none;
 	background-color: #EDEDE8;

@@ -33,6 +33,9 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.1)
     atomic (1.1.14)
+    better_errors (1.0.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     builder (3.1.4)
     capybara (2.2.0)
       mime-types (>= 1.16)
@@ -204,6 +207,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby!
+  better_errors
   capybara
   coffee-rails (~> 4.0.0)
   factory_girl_rails

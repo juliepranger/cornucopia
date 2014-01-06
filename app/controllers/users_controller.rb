@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.create(params.require(:user).permit(:email, :password, :password_confirmation))
+		@user = User.create(params.require(:user).permit(:name, :email, :password, :password_confirmation))
 		redirect_to users_url
 	end
 
