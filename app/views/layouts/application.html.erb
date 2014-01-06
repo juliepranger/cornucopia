@@ -25,7 +25,7 @@
             <li class="nav"><%= link_to "Recipes", recipes_path %></li>
           <% if current_user %>
             <li class="nav" id="welcome">Welcome <%= current_user.name %>!</li>
-            <li class="nav"><%= link_to "Parties", parties_path %></li>
+            <li class="nav"><%= link_to "My Parties", parties_path %></li>
             <li class="nav"><%= link_to "Sign out", "/logout" %></li>
           <% else %>
             <li class="nav"><%= link_to "Log In", "/authentications/new" %>
