@@ -4,7 +4,7 @@ html {
 
 body {
 	background: #FAF6E8;
-	margin: 0;
+	margin: 0px;
 	padding-bottom: 10px;
 }
 
@@ -45,7 +45,7 @@ h5 {
 }
 
 .headline {
-	background: #FAF6E8;
+	background: #FAF6E8 !important;
 	font-size: 20px;
 }
 
@@ -63,14 +63,26 @@ h5 {
 	opacity: 0.8;
 	z-index: 30;
 	border-radius: 4px;
-  position: fixed;
+  position: relative;
   top: 36%;
-  left: 38%;
-  z-index: 30;
+ 	margin: 0 auto;
+  z-index: 3000 !important;
 }
 
-div#map-canvas-bottom {
-	height: 10px;
+#map-wrapper {
+	width: 66%;
+	height:500px;
+	float: right;
+}
+
+#map-button {
+	width: 33%;
+	height: 500px;
+	float:left;
+
+}
+div#map-canvas {
+	height: 100%;
 }
 
 p.recipe {

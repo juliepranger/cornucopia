@@ -17,10 +17,16 @@
     <header>
       <script>
       $(document).ready(function() {
+        $('body').css('margin',0)
         $(window).scroll(function(){
-          if($(window).scrollTop()<20){
-            $('#user-widget.navbar-header').css('opacity', 0.8);
-          } else {
+          var top = $(window).scrollTop()
+          if(top>262){
+            $('#user-widget.navbar-header').css('opacity', 0);
+          } 
+          else if(top<5){
+            $('#user-widget.navbar-header').css('opacity', 1);
+          }
+          else {
             $('#user-widget.navbar-header').css('opacity', 0.8);
           }
         });

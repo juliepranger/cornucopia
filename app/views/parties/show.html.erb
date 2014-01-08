@@ -26,6 +26,7 @@
   <% @party.rides.each do |r| %>
     <p>Name: <%= r.name %></br>
     Location: <%= r.need_ride_location %></p></br>
+    <%= link_to 'Give Ride', party_path %>
   <% end %>
 </p>
 
@@ -144,6 +145,7 @@
 
         document.body.appendChild(script);
       };
+
 } //end initialize
 
  //reverse geocode
@@ -195,13 +197,16 @@
   });
 </script>
 
-<div id="map-canvas">
-</div>
-
-    <div id="map-canvas-bottom">
         <!--ride sharing -->
+  
+<div id="map-button">
   <button type="button" id="ride-btn">
     <div id="ride-btn-center">
       <h5>Need Ride</h5><i class="ion-navigate"></i><h5>Current Location</h5>
     </div>
   </button>
+</div>
+<div id="map-wrapper">
+<div id="map-canvas">
+</div>
+</div>
