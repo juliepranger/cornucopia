@@ -15,12 +15,17 @@ header {
 	margin-bottom: 0;
 }
 
+#header-paragraph {
+	padding-bottom: 5px;
+}
+
 #fix {
 	margin: 0 !important;
 }
 
 h1#fix {
 	font-family: 'Nothing You Could Do', cursive;
+	padding: 75px 0 20px 0;
 }
 
 h1 {
@@ -92,6 +97,7 @@ li#welcome.nav {
 }
 
 div#user-widget.navbar-header {
+	position: fixed;
 	padding-bottom: 15px;
 	color: #555;
 }

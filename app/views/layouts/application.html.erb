@@ -15,10 +15,19 @@
 
   <body>
     <header>
+      <script>
+      $(document).ready(function() {
+        $(window).scroll(function(){
+          if($(window).scrollTop()<20){
+            $('#user-widget.navbar-header').stop(true,true).fadeIn('slow');
+          } else {
+            $('#user-widget.navbar-header').stop(true,true).fadeOut('slow');
+          }
+        });
+      });
+      </script>
 
       <div class="navbar-header" id="user-widget">
-
-        <div>
         <!-- Collect the nav links, forms, and other content for toggling -->
           <ul class="navbar-items">
             <li class="nav"><%= link_to "Cornucopia", root_path %></li>
@@ -33,7 +42,7 @@
             <% end %>
           </ul>
         </div>
-      </div>
+      <div id="header-paragraph">
       <h1 id="fix">Cornucopia</h1>
           <p>
           Because </br>
@@ -42,6 +51,7 @@
           & how you celebrate community matters. </br>
           We are here to help. </br>
           </p>
+      </div>
   </header>
 
     <%= yield %>
