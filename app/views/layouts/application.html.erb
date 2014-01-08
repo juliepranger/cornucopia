@@ -32,7 +32,6 @@
         });
       });
       </script>
-
       <div class="navbar-header" id="user-widget">
         <!-- Collect the nav links, forms, and other content for toggling -->
           <ul class="navbar-items">
@@ -45,23 +44,23 @@
           <% else %>
             <li class="nav"><%= link_to "Log In", "/authentications/new" %>
             <li class="nav"><%= link_to "Sign Up", "/users/new" %></li>
-            <% end %>
-          </ul>
-        </div>
+          <% end %>
+        </ul>
+      </div>
       <div id="header-paragraph">
       <h1 id="fix">Cornucopia</h1>
-          <p>
-          Because </br>
-          potlucks are supposed to be easy, </br>
-          planning with friends should be fun, </br>  headaches are not invited to parties, </br>
-          & how you celebrate community matters. </br>
-          We are here to help. </br>
-          </p>
+        <p>
+        Because </br>
+        potlucks are supposed to be easy, </br>
+        planning with friends should be fun, </br>  headaches are not invited to parties, </br>
+        & how you celebrate community matters. </br>
+        We are here to help. </br>
+        </p>
       </div>
   </header>
-
+  
     <%= yield %>
-<footer>made by Julie</footer>
+
   </body>
 </html>
 
