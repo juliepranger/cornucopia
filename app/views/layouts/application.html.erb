@@ -19,9 +19,9 @@
       $(document).ready(function() {
         $(window).scroll(function(){
           if($(window).scrollTop()<20){
-            $('#user-widget.navbar-header').stop(true,true).fadeIn('slow');
+            $('#user-widget.navbar-header').css('opacity', 0.8);
           } else {
-            $('#user-widget.navbar-header').stop(true,true).fadeOut('slow');
+            $('#user-widget.navbar-header').css('opacity', 0.8);
           }
         });
       });
