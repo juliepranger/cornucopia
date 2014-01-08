@@ -15,8 +15,7 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
 
   def authenticate(password)
-    self.hashed_password ==
-    BCrypt::Engine.hash_secret(password, self.salt)
+    self.hashed_password == BCrypt::Engine.hash_secret(password, self.salt)
   end
 
   private
