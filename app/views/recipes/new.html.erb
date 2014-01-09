@@ -4,18 +4,16 @@
 
 <%= form_for @recipe do |r| %>
 
-<%= r.label :name, "Name" %>
-<%= r.text_field :name %></br>
+<%= r.text_field :name, placeholder: "Name" %></br>
 
-<%= r.label :serves, "Serves" %>
-<%= r.text_field :serves %></br>
+<%= r.text_field :serves, placeholder: "Serves" %></br>
 
-<%= r.label :total_time, "Total Time" %>
-<%= r.text_field :total_time %> Minutes</br>
+<%= r.text_field :total_time, placeholder: "Total time" %> Minutes</br>
 
-<%= r.label :ingredients, "Ingredient List" %>
-<%= r.text_area :ingredients, rows: 5, cols: 50 %></br>
+<%= r.text_area :ingredients, rows: 5, cols: 50, placeholder: "What's in it?" %></br>
 
-<%= r.submit "Submit Recipe" %>
+<%= r.text_area :directions, placeholder: "How do you make it?" %></br>
+
+<%= r.submit "Share!" %>
 
 <% end %>

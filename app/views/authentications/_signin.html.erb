@@ -1,0 +1,12 @@
+<div class="container">
+
+<%= form_for User.new, url:"/authentications", method: 'post' do |user| %>
+
+		<%= user.text_field :email, placeholder: "E-mail" %>
+
+		<%= user.password_field :password, placeholder: "Password" %>
+		<%= user.submit "Let's Party!" %> 
+
+	<% end %>
+
+</div>

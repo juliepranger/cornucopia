@@ -42,8 +42,8 @@
             <li class="nav"><%= link_to "My Parties", parties_path %></li>
             <li class="nav"><%= link_to "Sign out", "/logout" %></li>
           <% else %>
-            <li class="nav"><%= link_to "Log In", "/authentications/new" %>
-            <li class="nav"><%= link_to "Sign Up", "/users/new" %></li>
+            <li class="nav-right"><%= render 'authentications/signin'%></li>
+            <li class="nav-right"><%= link_to "Sign Up", "/users/new" %></li>
           <% end %>
         </ul>
       </div>
@@ -58,7 +58,7 @@
         </p>
       </div>
   </header>
-  
+
     <%= yield %>
 
   </body>

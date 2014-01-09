@@ -18,6 +18,6 @@ Cornucopia::Application.routes.draw do
 	post 'authentications' => 'authentications#create' 
   get 'authentications/new' => 'authentications#new'
 
-  #delete 'authentications/ => 'authentications#destroy'
+  # delete 'authentications/' => 'authentications#destroy'
   get "/logout", to: "authentications#destroy", as: "logout"
 end

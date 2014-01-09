@@ -12,20 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "Name" %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.text_field :date %>
+    <%= f.text_field :date, placeholder: "Date" %>
   </div>
   <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
+    <%= f.text_field :location, placeholder: "Party Address" %>
   </div>
   <div class="field">
-    <%= f.label :guest_list %><br>
-    <%= f.text_field :guest_list %>
+    <%= f.text_field :guest_list, placeholder: "Who's invited?" %>
   </div>
   <div class="actions" id="button">
     <%= f.submit %>
