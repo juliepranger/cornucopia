@@ -40,9 +40,18 @@ class PartiesController < ApplicationController
   # POST /parties.json
   def create
     @party = Party.new(party_params)
+    
+
 
     respond_to do |format|
       if @party.save
+        @guestlist = params.require(:party).permit(:guest_list, :id)
+          @attendees = @guestlist[:guest_list].split(',')
+          @attendees.each do |email|
+            @attendee = Attendee.where(:email => email).first_or_create(:rsvp => nil,
+                                                                        :token => SecureRandom.urlsafe_base64)
+            @party.attendees << @attendee
+          end
         format.html { redirect_to @party, notice: 'Party was successfully created.' }
         format.json { render action: 'show', status: :created, location: @party }
       else

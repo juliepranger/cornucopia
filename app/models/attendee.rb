@@ -1,6 +1,6 @@
 class Attendee < ActiveRecord::Base
 
-	belongs_to :party
+	has_and_belongs_to_many :parties
 	has_one :item, class_name: "Item", inverse_of: :attendee
 
 	def new
