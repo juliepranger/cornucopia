@@ -10,6 +10,10 @@ class PartiesController < ApplicationController
       flash[:notice] = "Uh oh, you're not signed in!"
     else
       @parties = Party.where(:host_id => current_user.id)
+      @party = Party.all
+      @att_parties = @party.each do |p|
+        p.attendees.where(email: current_user.email)
+      end
     end
   end
 

@@ -1,4 +1,4 @@
-<h1>Upcoming Parties</h1>
+<h2>Be Our Guest</h2>
 
 <table>
   <thead>
@@ -15,12 +15,44 @@
   </thead>
 
   <tbody>
-    <% @parties.each do |party| %>
+    <% @att_parties.each do |party| %>
       <tr>
         <td><%= party.name %></td>
         <td><%= party.date %></td>
         <td><%= party.location %></td>
         <td><%= party.host.name %></td>
+        <td><%= party.guest_list %></td>
+        <td><%= link_to 'Show', party %></td>
+        <td><%= link_to 'Edit', edit_party_path(party) %></td>
+        <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</br>
+
+<h2>Play the Host</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Guest list</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parties.each do |party| %>
+      <tr>
+        <td><%= party.name %></td>
+        <td><%= party.date %></td>
+        <td><%= party.location %></td>>
         <td><%= party.guest_list %></td>
         <td><%= link_to 'Show', party %></td>
         <td><%= link_to 'Edit', edit_party_path(party) %></td>
