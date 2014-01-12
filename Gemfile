@@ -53,6 +53,7 @@ group :development do
 	gem 'factory_girl_rails'
 	gem 'rails-erd'
 	gem 'better_errors'
+	gem 'letter_opener'
 end
 
 group :test do

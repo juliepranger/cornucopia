@@ -61,6 +61,7 @@ class PartiesController < ApplicationController
                                                                         :token => SecureRandom.urlsafe_base64)
             @party.attendees << @attendee
           end
+        AttendeesMailer.attendee_invite_notification(@party)  
         format.html { redirect_to @party, notice: 'Party was successfully created.' }
         format.json { render action: 'show', status: :created, location: @party }
       else

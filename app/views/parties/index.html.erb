@@ -5,26 +5,14 @@
     <tr>
       <th>Name</th>
       <th>Date</th>
-      <th>Location</th>
-      <th>Host</th>
-      <th>Guest list</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @att_parties.each do |party| %>
       <tr>
-        <td><%= party.name %></td>
+        <td><%= link_to party.name, party_path(party.id) %></td>
         <td><%= party.date %></td>
-        <td><%= party.location %></td>
-        <td><%= party.host.name %></td>
-        <td><%= party.guest_list %></td>
-        <td><%= link_to 'Show', party %></td>
-        <td><%= link_to 'Edit', edit_party_path(party) %></td>
-        <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,35 +21,25 @@
 </br>
 
 <h2>Play the Host</h2>
-
+<strong><%= link_to 'New Party', new_party_path %><strong>
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Date</th>
-      <th>Location</th>
-      <th>Guest list</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @parties.each do |party| %>
       <tr>
-        <td><%= party.name %></td>
+        <td><%= link_to party.name, party_path(party.id) %></td>
         <td><%= party.date %></td>
-        <td><%= party.location %></td>>
-        <td><%= party.guest_list %></td>
-        <td><%= link_to 'Show', party %></td>
         <td><%= link_to 'Edit', edit_party_path(party) %></td>
-        <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 </br>
-
-<strong><%= link_to 'New Party', new_party_path %><strong>
