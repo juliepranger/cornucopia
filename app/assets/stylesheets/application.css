@@ -1,3 +1,26 @@
+@media screen and (max-width: 600px) {
+  html,
+  body,
+  li.nav,
+  div#user-widget.navbar-header {
+    float: none;
+    width: auto;
+  }
+  li#welcome.nav {
+  	padding-left: 20px !important;
+  }
+  li.nav {
+  	padding: 10px;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+	li#welcome.nav {
+		padding-left: 200px !important;
+	}
+}
+
+
 html {
 	margin: 0;
 }
@@ -156,7 +179,7 @@ input {
 	background-color: #f8f8f8;
 	border: none;
 	color: #555;
-	width: 100%;
+	width: 100% !important;
 	height: 50px;
 }
 
@@ -169,16 +192,6 @@ input {
 	list-style-type: none;
 	padding: 10px 20px 10px 20px;
 	float:left;
-	color: #555;
-}
-
-.nav-right {
-	float: right;
-	padding: 0 10px 0 10px;
-}
-
-.nav a {
-	text-decoration: none;
 	color: #555;
 }
 
