@@ -5,11 +5,16 @@ class PartiesController < ApplicationController
   # GET /parties
   # GET /parties.json
   def index
-    @parties = Party.all
+    if !current_user 
+      redirect_to root_path
+      flash[:notice] = "Uh oh, you're not signed in!"
+    else
+      @parties = Party.where(:host_id => current_user.id)
+    end
   end
 
   def create_party_access
-    if current_user == :userid
+    if current_user 
       redirect_to :action => 'show', :id =>@party._id
     else
       flash[:notice] = "Uh oh, you're not signed in!"
@@ -40,7 +45,7 @@ class PartiesController < ApplicationController
   # POST /parties.json
   def create
     @party = Party.new(party_params)
-    
+    @party.host_id = current_user.id
 
 
     respond_to do |format|
@@ -58,7 +63,6 @@ class PartiesController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @party.errors, status: :unprocessable_entity }
       end
-    @party.host = current_user
     end
   end
 

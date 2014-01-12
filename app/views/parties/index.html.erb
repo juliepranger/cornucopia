@@ -6,7 +6,7 @@
       <th>Name</th>
       <th>Date</th>
       <th>Location</th>
-      <th>Email</th>
+      <th>Host</th>
       <th>Guest list</th>
       <th></th>
       <th></th>
@@ -20,7 +20,7 @@
         <td><%= party.name %></td>
         <td><%= party.date %></td>
         <td><%= party.location %></td>
-        <td><%= party.email %></td>
+        <td><%= party.host.name %></td>
         <td><%= party.guest_list %></td>
         <td><%= link_to 'Show', party %></td>
         <td><%= link_to 'Edit', edit_party_path(party) %></td>

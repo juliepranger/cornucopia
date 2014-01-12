@@ -18,10 +18,22 @@
 <%= hidden_field_tag 'id', @party.id %>
 <p>
   <strong>Guest list:</strong></br>
-  <%= @party.attendees.each do |a| %>
-    <%= a.email %>
-    <%= a.rsvp %>
+  <table>
+    <tr>
+      <th>Attendee E-mail</th>
+      <th>RSVP</th>
+    </tr>
+  <% @party.attendees.each do |a| %>
+    <tr>
+      <td><%= a.email %></td>
+      <td><% if a.rsvp == nil %>
+            <%= 'Awaiting Response' %>
+          <% else %>
+            <%= a.rsvp %>
+          <% end %></td>
+    </tr>
   <% end %>
+  </table>
 </p>
 
 <p>

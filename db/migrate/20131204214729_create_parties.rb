@@ -6,7 +6,6 @@ class CreateParties < ActiveRecord::Migration
       t.string :location
       t.string :email
       t.string :userid
-      t.string :host_id
       t.string :guest_list
 
       t.timestamps
