@@ -22,6 +22,7 @@
     <tr>
       <th>Attendee E-mail</th>
       <th>RSVP</th>
+      <th>On the Menu</th>
     </tr>
   <% @party.attendees.each do |a| %>
     <tr>
@@ -35,6 +36,9 @@
               <%= "Maybe next time!" %>
           <% end %></td>
         <% end %>
+      <td><% if a.rsvp == true %>
+            <%= a.items.food_name %></td>
+          <% end %>
     </tr>
   <% end %>
   </table>

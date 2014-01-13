@@ -20,11 +20,11 @@ class ItemsController < ApplicationController
 	end
 
 	def create
-		@item = Item.new(params[:item].permit(:party_id, :food_type, :food_name, :drinks, :appetizer, :salad, :main_course, :side_dish, :dessert))
+		@item = Item.new(params[:item].permit(:party_id, :food_type, :food_name, :attendee_id))
 		@item.party = Party.find(@item.party_id)
 		@item.attendee = current_user
 		@item.save
-		redirect_to parties_url
+		redirect_to party_path(@party)
 	end
 
 	def show

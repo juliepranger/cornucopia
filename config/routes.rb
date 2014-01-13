@@ -5,6 +5,8 @@ Cornucopia::Application.routes.draw do
   get 'parties/:id/rsvp' => 'parties#rsvp_show'
   post 'parties/:id/rsvp/no' => 'parties#rsvp_no'
   post 'parties/:id/rsvp/yes' => 'parties#rsvp_yes'
+  get '/parties/:id/items' => 'parties#items'
+  post '/parties/:id/items' => 'parties#add_item'
   resources :users
   resources :maps
   resources :attendees

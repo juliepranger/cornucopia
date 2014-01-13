@@ -87,11 +87,24 @@ class PartiesController < ApplicationController
 
   def rsvp_yes # set rsvp to true, direct them to party page to determine what item they will bring
     @party = Party.find(params[:id])
-
     @attendee = Attendee.where(:token => params[:token])
     @attendee.first.rsvp = true
     @attendee.first.save
-    redirect_to :action => 'show', :id =>@party.id
+    redirect_to "/parties/#{@party.id}/items"
+  end
+
+  def items
+    @party = Party.find(params[:id])
+    @item = Item.new
+    # @item = Item.new
+  end
+
+  def add_item
+    @item = Item.new(item_params)
+    @item.party_id = @party.id
+    @item.save
+    @party = Party.find(params[:id])
+    redirect_to party_path(@party)
   end
 
   # PATCH/PUT /parties/1
@@ -123,5 +136,9 @@ class PartiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def party_params
       params.require(:party).permit(:name, :date, :location, :email, :userid, :host_id, :guest_list)
+    end
+
+    def item_params
+      params.require(:item).permit(:food_type, :food_name, :party_id, :attendee_id)
     end
 end
