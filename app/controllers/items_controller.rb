@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 		@item.party = Party.find(@item.party_id)
 		@item.attendee = current_user
 		@item.save
-		redirect_to party_path(@party)
+		redirect_to party_path(@item.party_id)
 	end
 
 	def show

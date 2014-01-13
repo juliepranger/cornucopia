@@ -37,7 +37,11 @@
           <% end %></td>
         <% end %>
       <td><% if a.rsvp == true %>
-            <%= a.items.food_name %></td>
+              <% if a.item == nil %>
+                <%= "Indecisive" %>
+              <% else %>
+            <%= a.item.food_name %></td>
+            <% end %>
           <% end %>
     </tr>
   <% end %>
