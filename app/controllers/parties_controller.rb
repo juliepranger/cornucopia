@@ -53,7 +53,7 @@ class PartiesController < ApplicationController
 
 
     respond_to do |format|
-      if @party.save
+      if @party.save # split up the guest list array where commas are shown, each email is an attendee with an rsvp set to nil and a unique token for rsvps!
         @guestlist = params.require(:party).permit(:guest_list, :id)
           @attendees = @guestlist[:guest_list].split(',')
           @attendees.each do |email|
@@ -69,6 +69,29 @@ class PartiesController < ApplicationController
         format.json { render json: @party.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def rsvp_show #link to secret token in email
+    @party = Party.find(params[:id])
+    @attendee_token = params[:token]
+  end
+
+  def rsvp_no #can't go, have to set rsvp to false and redirect them to cornucopia homepage
+    @party = Party.find(params[:id])
+
+    @attendee = Attendee.where(:token => params[:token])
+    @attendee.first.rsvp = false
+    @attendee.first.save
+    redirect_to root_path
+  end
+
+  def rsvp_yes # set rsvp to true, direct them to party page to determine what item they will bring
+    @party = Party.find(params[:id])
+
+    @attendee = Attendee.where(:token => params[:token])
+    @attendee.first.rsvp = true
+    @attendee.first.save
+    redirect_to :action => 'show', :id =>@party.id
   end
 
   # PATCH/PUT /parties/1

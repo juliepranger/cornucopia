@@ -29,8 +29,12 @@
       <td><% if a.rsvp == nil %>
             <%= 'Awaiting Response' %>
           <% else %>
-            <%= a.rsvp %>
+            <% if a.rsvp == true %>
+              <%= "Can't wait!" %>
+            <% else %>
+              <%= "Maybe next time!" %>
           <% end %></td>
+        <% end %>
     </tr>
   <% end %>
   </table>

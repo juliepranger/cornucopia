@@ -1,7 +1,10 @@
 Cornucopia::Application.routes.draw do
 
   resources :parties
-
+  #for secret token link - is the attendee going to come to the party?
+  get 'parties/:id/rsvp' => 'parties#rsvp_show'
+  post 'parties/:id/rsvp/no' => 'parties#rsvp_no'
+  post 'parties/:id/rsvp/yes' => 'parties#rsvp_yes'
   resources :users
   resources :maps
   resources :attendees
