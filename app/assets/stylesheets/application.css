@@ -105,10 +105,11 @@ h5 {
 	font-family: 'Nothing You Could Do', cursive;
 }
 
-.container {
+div.container {
 	padding-left: 20px;
 	margin: 0 auto;
 	text-align: center;
+/*	background-image:url('notebook-page.jpg');*/
 }
 
 #ride-btn {
