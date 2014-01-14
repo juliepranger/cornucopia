@@ -1,6 +1,6 @@
 Cornucopia::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+config.action_mailer.default_url_options = { host: "cornucopiahome.herokuapp.com" } 
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -51,6 +51,26 @@ Cornucopia::Application.configure do
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
+  #mail away, mail away, mail away
+  config.action_mailer.delivery_method = :sendmail
+  # Defaults to:
+  # config.action_mailer.sendmail_settings = {
+  #   location: '/usr/sbin/sendmail',
+  #   arguments: '-i -t'
+  # }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_options = {from: 'juliepranger@gmail.com'}
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'juliepranger.com',
+  user_name:            'juliepranger@gmail.com',
+  password:             ENV["GMAIL_PASSWORD"],
+  authentication:       'plain',
+  enable_starttls_auto: true  }
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
