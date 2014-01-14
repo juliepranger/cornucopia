@@ -1,5 +1,5 @@
 class AttendeesMailer < ActionMailer::Base
-	default from: "from@example.com"
+	default from: "juliepranger@gmail.com"
 
 	def attendee_invite_notification(party)
 		@party = party
