@@ -36,7 +36,7 @@ Cornucopia::Application.configure do
   port:                 587,
   domain:               'juliepranger.com',
   user_name:            'juliepranger@gmail.com',
-  password:             'julie pranger10',
+  password:             ENV["GMAIL_PASSWORD"],
   authentication:       'plain',
   enable_starttls_auto: true  }
 

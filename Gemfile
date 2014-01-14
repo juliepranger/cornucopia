@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 1.2'
 # #OmniAuth and Facebook auth
 # gem 'omniauth'
 # gem 'omniauth-facebook'
-# gem 'figaro'
+gem 'figaro'
 
 gem 'roo'
 
