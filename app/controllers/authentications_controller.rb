@@ -20,7 +20,8 @@ class AuthenticationsController < ApplicationController
 				redirect_to root_path
 			else 
 				flash[:notice] = "Unable to sign you in."
-				render :new
+				# render :new
+				redirect_to root_path
 			end
 		end
 	end

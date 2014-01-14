@@ -1,25 +1,24 @@
 <div class="container">
-	<h5>How exciting! You have been invited to:</h5>
+	<h3>How exciting! You have been invited to:</h3>
 
-<p>
+<p class="text">
   <strong>Party Name:</strong></br>
   <%= @party.name %>
 </p>
 
-<p>
+<p class="text">
   <strong>Date:</strong></br>
   <%= @party.date %>
 </p>
 
-<p id="location">
+<p class="text" id="location">
   <strong>Location:</strong></br>
   <%= @party.location%>
 </p>
-
+</br>
 <%= hidden_field_tag 'id', @party.id %>
 
-	<p>Will you be attending?</p>
+	<p class="text">Will you be attending?</p>
 
 	<%= button_to "Of course!", controller: 'parties', action: 'rsvp_yes', token: @attendee_token, method: :post %></br>
 	<%= button_to "Unfortunately not", controller: 'parties', action: 'rsvp_no', token: @attendee_token, method: :post %>
-	<%= params %>

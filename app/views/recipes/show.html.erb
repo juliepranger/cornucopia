@@ -15,16 +15,16 @@ Directions: <% @recipe.directions.order(:id).each do |d| %></br>
 <p class="recipe">
 Category: <%= @recipe.category.category_name %>
 </p></p>
-
-<div
+<span class="link"><%= link_to 'Back', categories_path %></span>
+<!-- <div
     class="fb-login-button"
     data-show-faces="true"
     data-width="200"
     data-max-rows="1"
     data-scope="publish_actions">
-  </div>
+  </div> -->
 
-  <div><a>Like the recipe on Cornucopia</a><a href="http://www.budgetbytes.com/2011/02/quick-curried-chick-peas/"></a>. 
+<!--   <div><a>Like the recipe on Cornucopia</a><a href="http://www.budgetbytes.com/2011/02/quick-curried-chick-peas/"></a>. 
   </div>
 
   <div id="fb-post">
@@ -36,4 +36,4 @@ Category: <%= @recipe.category.category_name %>
     onclick="postLike();">
   </div>
 
-  <div id="result"></div>
+  <div id="result"></div> -->

@@ -1,23 +1,19 @@
-<h4>What should I bring to <%= @party.name %>? </h4></br>
+<h3>What should I bring to <%= @party.name %>? </h3></br>
 <h5>Make it easy on yourself, please only sign up once!</h5>
+</br>
 
 <div class="container">
-	<%= button_to "Need an idea?", controller: 'recipes', method: :get %>
 	<%= form_for(@item, url: items_path, token: params[:token]) do |item| %>
 
-	<p>
-		<%= item.label :food_type, "Item Type" %>
-		<%= item.select :food_type, options_for_select([['Drinks', 'Drinks'], ['Appetizer', 'Appetizer'], ['Salad', 'Salad'], ['Main Course', 'Main Course'], ['Soup or Stew', 'Soup or Stew'],['Side Dish', 'Side Dish'], ['Dessert', 'Dessert']]) %>
+	<p class="text">
+		<%= item.select :food_type, options_for_select([["I'll bring", "I'll bring"],['Drinks', 'Drinks'], ['Appetizer', 'Appetizer'], ['Salad', 'Salad'], ['Main Course', 'Main Course'], ['Soup or Stew', 'Soup or Stew'],['Side Dish', 'Side Dish'], ['Dessert', 'Dessert']]) %>
 	</p>
-	<p>
-		<%= item.text_field :food_name, placeholder: 'Menu Item' %>
-	</p>
+	<p class="text">
+		<%= item.text_field :food_name, placeholder: 'Recipe Name' %>
 		<%= item.hidden_field :party_id, value: @party.id %>
 		<%= item.hidden_field :attendee_id, value: @attendee.id %>
-	<p>
 		<%= item.submit "Bring It!" %>
-	</p>
-
 	<% end %>
-<%= params %>
+		<%= button_to "Need an idea?", controller: 'recipes', method: :get %>
+	</p>
 </div>

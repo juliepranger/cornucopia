@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<p class="text">
   <strong>Party Name:</strong></br>
   <%= @party.name %>
-</p>
+</p></br>
 
-<p>
+<p class="text">
   <strong>Date:</strong></br>
   <%= @party.date %>
-</p>
+</p></br>
 
-<p id="location">
+<p class="text" id="location">
   <strong>Location:</strong></br>
   <%= @party.location%>
-</p>
+</p></br>
 
 <%= hidden_field_tag 'id', @party.id %>
-<p>
+<p class="text">
   <strong>Guest list:</strong></br>
   <table>
     <tr>
@@ -51,17 +51,18 @@
   </table>
 </p>
 
-<p>
-  <strong>Ride Requests</strong></br>
+<p class="text">
+  <strong>Ride Requests:</strong></br>
   <% @party.rides.each do |r| %>
-    <p>Name: <%= r.name %></br>
+    <p class="text">Name: <%= r.name %></br>
     Location: <%= r.need_ride_location %></p></br>
-    <%= link_to 'Give Ride', party_path %>
+    <p class="text"><%= link_to 'Give Ride', party_path %></p>
   <% end %>
-</p>
+</p></br>
 
-
+<% if current_user == @party.host %>
 <%= link_to 'Edit', edit_party_path(@party) %> |
+<% end %>
 <%= link_to 'Back', parties_path %>
 
     <style type="text/css">
