@@ -37,10 +37,13 @@
           <% end %></td>
         <% end %>
       <td><% if a.rsvp == true %>
-              <% if a.item == nil %>
+              <% if a.items == nil %>
                 <%= "Indecisive" %>
               <% else %>
-            <%= a.item.food_name %></td>
+                <% a.items.where(:party_id => @party.id).each do |i| %>
+                  <%= i.food_name+" "%>
+                <% end %>
+            </td>
             <% end %>
           <% end %>
     </tr>

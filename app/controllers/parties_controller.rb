@@ -29,6 +29,7 @@ class PartiesController < ApplicationController
   # GET /parties/1.json
   def show
     @party = Party.find(params[:id])
+    @items = @party.items
     # @rides = Ride.find(params[:id])
     respond_to do |format|
       format.json { render :json => params }
@@ -87,15 +88,16 @@ class PartiesController < ApplicationController
 
   def rsvp_yes # set rsvp to true, direct them to party page to determine what item they will bring
     @party = Party.find(params[:id])
-    @attendee = Attendee.where(:token => params[:token])
-    @attendee.first.rsvp = true
-    @attendee.first.save
-    redirect_to "/parties/#{@party.id}/items"
+    @attendee = Attendee.where(:token => params[:token]).first
+    @attendee.rsvp = true
+    @attendee.save
+    redirect_to "/parties/#{@party.id}/items?token=#{@attendee.token}"
   end
 
   def items
     @party = Party.find(params[:id])
     @item = Item.new
+    @attendee = Attendee.where(:token => params[:token]).first
     # @item = Item.new
   end
 

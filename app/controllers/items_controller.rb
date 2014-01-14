@@ -20,9 +20,10 @@ class ItemsController < ApplicationController
 	end
 
 	def create
+		@attendee = Attendee.where(:token => params[:token]).first
 		@item = Item.new(params[:item].permit(:party_id, :food_type, :food_name, :attendee_id))
 		@item.party = Party.find(@item.party_id)
-		@item.attendee = current_user
+		@item.attendee = Attendee.find(@item.attendee_id)
 		@item.save
 		redirect_to party_path(@item.party_id)
 	end

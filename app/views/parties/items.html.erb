@@ -3,7 +3,7 @@
 
 <div class="container">
 	<%= button_to "Need an idea?", controller: 'recipes', method: :get %>
-	<%= form_for(@item, url: items_path) do |item| %>
+	<%= form_for(@item, url: items_path, token: params[:token]) do |item| %>
 
 	<p>
 		<%= item.label :food_type, "Item Type" %>
@@ -13,10 +13,11 @@
 		<%= item.text_field :food_name, placeholder: 'Menu Item' %>
 	</p>
 		<%= item.hidden_field :party_id, value: @party.id %>
+		<%= item.hidden_field :attendee_id, value: @attendee.id %>
 	<p>
 		<%= item.submit "Bring It!" %>
 	</p>
 
 	<% end %>
-
+<%= params %>
 </div>

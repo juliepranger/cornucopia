@@ -1,7 +1,7 @@
 class Attendee < ActiveRecord::Base
 
 	has_and_belongs_to_many :parties
-	has_one :item, class_name: "Item", inverse_of: :attendee
+	has_many :items, class_name: "Item", inverse_of: :attendee
 
 	def new
 		@attendee = Attendee.new

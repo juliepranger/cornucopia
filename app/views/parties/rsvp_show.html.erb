@@ -22,3 +22,4 @@
 
 	<%= button_to "Of course!", controller: 'parties', action: 'rsvp_yes', token: @attendee_token, method: :post %></br>
 	<%= button_to "Unfortunately not", controller: 'parties', action: 'rsvp_no', token: @attendee_token, method: :post %>
+	<%= params %>
